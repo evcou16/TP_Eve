@@ -30,3 +30,5 @@ def afficher_damier_ascii(grille):
     }
     board_positions = 9
     espace_horizontal = ((board_positions * 4) - 1)
+    jeu_position_x = range(1, (board_positions * 4), 4)
+    jeu_position_y = range(((board_positions - 1) * 2), -1, -2)
