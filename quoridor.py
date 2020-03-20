@@ -33,3 +33,13 @@ def afficher_damier_ascii(grille):
     jeu_position_y = range(((board_positions - 1) * 2), -1, -2)
     legende = "legende: "
     board = [legende]
+    for i in reversed(range((board_positions * 2) -1)):
+        if (i % 2) == 0:
+            board += ligne(i)
+            board += [" ", "."]
+            board += ([" ", " ", " ", "."] * (board_positions - 1))
+            board += [" ", "|\n"]
+        else:
+            board += ["  |"]
+            board += ([" "] * espace_horizontal)
+            board += ["|\n"]
