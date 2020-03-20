@@ -1,4 +1,5 @@
 import argparse
+import api
 
 
 def analyser_commande():
@@ -90,4 +91,12 @@ def afficher_damier_ascii(grille):
         for i in range(3):
             board[(indice - (i * (espace_horizontal + 2)))] = "|"
     #afficher le jeu sous forme dune chaine de caracteres
-    print("".join(board)) 
+    print("".join(board))
+    
+  #if __name__=='__main__':
+    #init = api.initialiser_partie('evcou16')
+    #print(init)
+    #coup = api.jouer_coup('ea8ee3f1-280b-4648-bec9-c585609db5b1', 'D', (5,2))
+    #afficher_damier_ascii(coup['état'])
+    #print(coup)
+
