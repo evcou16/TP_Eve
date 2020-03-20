@@ -63,3 +63,6 @@ def afficher_damier_ascii(grille):
                     (jeu_position_y[(position[1] - 1)] * espace_horizontal))
         decallage = ((((indice + 1) // espace_horizontal) * 2) + 2)
         indice += decallage
+        board[indice] = str(num + 1)
+    #completion de la legende du tableau
+    board[0] = legende + "\n" + (" " * 3) + ("-" * espace_horizontal) +"\n"
