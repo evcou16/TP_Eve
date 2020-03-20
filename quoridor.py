@@ -55,3 +55,11 @@ def afficher_damier_ascii(grille):
         #obtention de la position en x et y du joueur
         position = joueur["pos"]
         #verif que la position est dans les contraintes
+        if ((0 > position[0] > board_positions) or
+                (0 > position[1] > board_positions)):
+            raise IndexError("Adresse du joueur invalide!")
+        #calcul du decallage relatif au tableau
+        indice = (jeu_position_x[(position[0] - 1)] +
+                    (jeu_position_y[(position[1] - 1)] * espace_horizontal))
+        decallage = ((((indice + 1) // espace_horizontal) * 2) + 2)
+        indice += decallage
