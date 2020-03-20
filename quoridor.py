@@ -7,3 +7,11 @@ def analyser_commande():
     parser.add_argument("idul", metavar="idul", type=str, help="IDUL du joueur")
     #parser.add_argument("nom_du_joueur", metavar="nom_du_joueur", type=str, help="nom du joueur")
     return parser.parse_args()
+
+def ligne(i):
+    r = []
+    if (((i+1) // 2) + 1) < 10:
+        r = ["{} |".format(((i + 1) // 2) + 1)]
+    else:
+        r = ["{} |".format(((i + 1) // 2) + 1)]
+    return r
