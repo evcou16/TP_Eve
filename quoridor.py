@@ -78,4 +78,16 @@ def afficher_damier_ascii(grille):
         #iterer pour placer les 5 murs
         for i in range(7):
             board[(indice + i)] = "-"
-    
+    for mur_v in grille["mur"]["verticaux"]:
+        #verif que la position est dans les contraintes
+        if (2 > mur_v[0] > board_positions) or (1 > mur_v[1] > board_positions):
+            raise IndexError("Position du mur vertical invalide!")
+        indice = ((jeu_position_x[(mur_v[0] - 1)] - 2) +
+                    (jeu_position_y[(mur_v[1] - 1)] * espace_horizontal))
+        decallage = ((((indice + 1) // espace_horizontal) * 2) + 2)
+        indice += decallage
+        #iterer pour placer les 3 murs
+        for i in range(3):
+            board[(indice - (i * (espace_horizontal + 2)))] = "|"
+    #afficher le jeu sous forme dune chaine de caracteres
+    print("".join(board)) 
