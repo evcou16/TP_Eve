@@ -43,3 +43,15 @@ def afficher_damier_ascii(grille):
             board += ["  |"]
             board += ([" "] * espace_horizontal)
             board += ["|\n"]
+    board += "--|" + ("-" * espace_horizontal) + "|\n"
+    #numero ligne du bas
+    board += (" " * 2) + "| "
+    for i in range(1, board_positions):
+        board += str(i) + (" " * 3)
+    board += "{}\n".format(board_positions)
+    for num, joueur in enumerate(grille["joueurs"]):
+        #ajout du joueur a la legende du damier
+        legende += "{}={} ".format((num + 1), joueur["nom"])
+        #obtention de la position en x et y du joueur
+        position = joueur["pos"]
+        #verif que la position est dans les contraintes
