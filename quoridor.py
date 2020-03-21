@@ -67,7 +67,7 @@ def afficher_damier_ascii(grille):
         board[indice] = str(num + 1)
     #completion de la legende du tableau
     board[0] = legende + "\n" + (" " * 3) + ("-" * espace_horizontal) +"\n"
-    for mur_h in grille["murs"]["horizontaux"]:
+    for mur_h in grille["mur"]["horizontaux"]:
         #verif que la position est dans les contraintes
         if ((1 > mur_h[1] > (board_positions - 1)) or
                 (2 > mur_h[1] > board_positions)):
