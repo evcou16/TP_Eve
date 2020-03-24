@@ -1,10 +1,9 @@
 import argparse
-import api
 
 
 def analyser_commande():
     parser = argparse.ArgumentParser(description="Jeu quoridor - Phase 1")
-    parser.add_argument("-l", "--lister", action="store_true",help="Lister les identifiants de vos 20 dernieres parties.")
+    parser.add_argument("-l", "--lister", action="store_true", help="Lister les identifiants de vos 20 dernieres parties.")
     parser.add_argument("idul", metavar="idul", type=str, help="IDUL du joueur")
     return parser.parse_args()
 
@@ -66,7 +65,7 @@ def afficher_damier_ascii(grille):
             raise IndexError("Adresse du joueur invalide!")
         #calcul du decallage relatif au tableau
     indice = (jeu_position_x[(position[0] - 1)] +
-                    (jeu_position_y[(position[1] - 1)] * espace_horizontal))
+                (jeu_position_y[(position[1] - 1)] * espace_horizontal))
     decallage = ((((indice + 1) // espace_horizontal) * 2) + 2)
     indice += decallage
         #inserer le personnage dans le tableau du jeu
@@ -80,19 +79,19 @@ def afficher_damier_ascii(grille):
                 (2 > mur_h[1] > board_positions)):
             raise IndexError("Position du mur horizontal invalide!")
         indice = ((jeu_position_x[(mur_h[0] - 1)] - 1) +
-                    ((jeu_position_y[(mur_h[1] - 1)] + 1) * espace_horizontal))
+                ((jeu_position_y[(mur_h[1] - 1)] + 1) * espace_horizontal))
         decallage = ((((indice + 1) // espace_horizontal) * 2) + 2)
         indice += decallage
         #iterer pour placer les 5 murs
     for i in range(7):
-            board[(indice + i)] = "-"
+        board[(indice + i)] = "-"
     #insertion des murs verticaux
     for mur_v in grille["mur"]["verticaux"]:
         #verif que la position est dans les contraintes
         if (2 > mur_v[0] > board_positions) or (1 > mur_v[1] > board_positions):
             raise IndexError("Position du mur vertical invalide!")
         indice = ((jeu_position_x[(mur_v[0] - 1)] - 2) +
-                    (jeu_position_y[(mur_v[1] - 1)] * espace_horizontal))
+                (jeu_position_y[(mur_v[1] - 1)] * espace_horizontal))
         decallage = ((((indice + 1) // espace_horizontal) * 2) + 2)
         indice += decallage
         #iterer pour placer les 3 murs
@@ -101,11 +100,3 @@ def afficher_damier_ascii(grille):
     #afficher le jeu sous forme dune chaine de caracteres
     print("".join(board))
     return str(board)
-    
-  #if __name__=='__main__':
-    #init = api.initialiser_partie('evcou16')
-    #print(init)
-    #coup = api.jouer_coup('ea8ee3f1-280b-4648-bec9-c585609db5b1', 'D', (5,2))
-    #afficher_damier_ascii(coup['état'])
-    #print(coup)
-
